@@ -1,0 +1,3 @@
+{
+    "macros": ["MBED_CPU_STATS_ENABLED"]
+}
