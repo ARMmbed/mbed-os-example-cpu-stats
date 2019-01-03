@@ -35,7 +35,7 @@ void busy_thread()
 
     while(i--) {
         led1 = !led1;
-        wait_us(wait_time);
+        wait_ms(wait_time);
     }
 }
 
@@ -65,7 +65,7 @@ int main()
 
     // Steadily increase the system load
     for (int count = 1; ; count++) {
-        Thread::wait(LOOP_TIME);
+        ThisThread::sleep_for(LOOP_TIME);
         if (wait_time <= 0) {
             break;
         }
