@@ -15,19 +15,21 @@
 * limitations under the License.
 */
 #include "mbed.h"
+#include "platform/mbed_thread.h"
 
 #if !defined(MBED_CPU_STATS_ENABLED) || !defined(DEVICE_LPTICKER) || !defined(DEVICE_SLEEP)
 #error [NOT_SUPPORTED] test not supported
 #endif
 
+// Initialise the digital pin LED1 as an output
 DigitalOut led1(LED1);
 
-#define MAX_THREAD_STACK        384
-#define SAMPLE_TIME             1000
-#define LOOP_TIME               3000
+#define MAX_THREAD_STACK 384
+#define SAMPLE_TIME_MS   2000
+#define LOOP_TIME_MS     3000
 
 uint64_t prev_idle_time = 0;
-int32_t wait_time = 5000;
+int32_t wait_time_ms = 5000;
 
 void busy_thread()
 {
@@ -35,19 +37,26 @@ void busy_thread()
 
     while(i--) {
         led1 = !led1;
-        wait_ms(wait_time);
+        thread_sleep_for(wait_time_ms);
     }
 }
 
-void print_stats()
+void print_cpu_stats()
 {
     mbed_stats_cpu_t stats;
     mbed_stats_cpu_get(&stats);
 
-    printf("Uptime: %lld", stats.uptime);
-    printf(" Idle Time: %lld", stats.idle_time);
-    printf(" Sleep time: %lld", stats.sleep_time);
-    printf(" DeepSleep time: %lld\n", stats.deep_sleep_time);
+    // Calculate the percentage of CPU usage
+    uint64_t diff_usec = (stats.idle_time - prev_idle_time);
+    uint8_t idle = (diff_usec * 100) / (SAMPLE_TIME_MS*1000);
+    uint8_t usage = 100 - ((diff_usec * 100) / (SAMPLE_TIME_MS*1000));
+    prev_idle_time = stats.idle_time;
+    
+    printf("Time(us): Up: %lld", stats.uptime);
+    printf("   Idle: %lld", stats.idle_time);
+    printf("   Sleep: %lld", stats.sleep_time);
+    printf("   DeepSleep: %lld\n", stats.deep_sleep_time);
+    printf("Idle: %d%% Usage: %d%%\n\n", idle, usage);
 }
 
 int main()
@@ -57,18 +66,17 @@ int main()
     Thread *thread;
     int id;
 
-    id = stats_queue->call_every(SAMPLE_TIME, print_stats);
-
+    id = stats_queue->call_every(SAMPLE_TIME_MS, print_cpu_stats);
     thread = new Thread(osPriorityNormal, MAX_THREAD_STACK);
     thread->start(busy_thread);
 
     // Steadily increase the system load
     for (int count = 1; ; count++) {
-        ThisThread::sleep_for(LOOP_TIME);
-        if (wait_time <= 0) {
+        thread_sleep_for(LOOP_TIME_MS);
+        if (wait_time_ms <= 0) {
             break;
         }
-        wait_time -= 1000;
+        wait_time_ms -= 1000;
     }
     thread->terminate();
     stats_queue->cancel(id);
