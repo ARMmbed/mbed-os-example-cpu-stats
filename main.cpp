@@ -44,10 +44,10 @@ void print_stats()
     mbed_stats_cpu_t stats;
     mbed_stats_cpu_get(&stats);
 
-    printf("%-20lld", stats.uptime);
-    printf("%-20lld", stats.idle_time);
-    printf("%-20lld", stats.sleep_time);
-    printf("%-20lld\n", stats.deep_sleep_time);
+    printf("Uptime: %lld", stats.uptime);
+    printf(" Idle Time: %lld", stats.idle_time);
+    printf(" Sleep time: %lld", stats.sleep_time);
+    printf(" DeepSleep time: %lld\n", stats.deep_sleep_time);
 }
 
 int main()
@@ -58,7 +58,6 @@ int main()
     int id;
 
     id = stats_queue->call_every(SAMPLE_TIME, print_stats);
-    printf("%-20s%-20s%-20s%-20s\n", "Uptime", "Idle Time", "Sleep time", "DeepSleep time");
 
     thread = new Thread(osPriorityNormal, MAX_THREAD_STACK);
     thread->start(busy_thread);

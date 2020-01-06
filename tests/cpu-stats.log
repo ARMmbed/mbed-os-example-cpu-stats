@@ -1,19 +1,18 @@
-Uptime\s+Idle Time\s+Sleep time\s+DeepSleep time
-\d+\s+\d+\s+\d+\s+\d+
-\d+\s+\d+\s+\d+\s+\d+
-\d+\s+\d+\s+\d+\s+\d+
-\d+\s+\d+\s+\d+\s+\d+
-\d+\s+\d+\s+\d+\s+\d+
-\d+\s+\d+\s+\d+\s+\d+
-\d+\s+\d+\s+\d+\s+\d+
-\d+\s+\d+\s+\d+\s+\d+
-\d+\s+\d+\s+\d+\s+\d+
-\d+\s+\d+\s+\d+\s+\d+
-\d+\s+\d+\s+\d+\s+\d+
-\d+\s+\d+\s+\d+\s+\d+
-\d+\s+\d+\s+\d+\s+\d+
-\d+\s+\d+\s+\d+\s+\d+
-\d+\s+\d+\s+\d+\s+\d+
-\d+\s+\d+\s+\d+\s+\d+
-\d+\s+\d+\s+\d+\s+\d+
-\d+\s+\d+\s+\d+\s+\d+
+Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
+Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
+Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
+Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
+Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
+Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
+Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
+Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
+Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
+Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
+Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
+Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
+Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
+Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
+Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
+Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
+Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
+Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
