@@ -1,41 +1,52 @@
 ![](./resources/official_armmbed_example_badge.png)
-# CPU Statistics Mbed OS Example
+# CPU statistics Mbed OS example
 
-This guide reviews the steps required to get CPU statistics and usage on Mbed OS platform.
+This guide reviews the steps required to get CPU statistics and usage on an Mbed OS enabled platform.
 
-The project can be built with all supported [Mbed OS build tools](https://os.mbed.com/docs/mbed-os/latest/tools/index.html). However, this example project specifically refers to the command line interface tool [Arm Mbed CLI](https://github.com/ARMmbed/mbed-cli#installing-mbed-cli).
-
-Please install Arm Mbed CLI.
-
-Clone this repository on your system and change the current directory to where the project was cloned.
+You can build this project with all supported [Mbed OS build tools](https://os.mbed.com/docs/mbed-os/latest/tools/index.html). However, this example project specifically refers to the command-line interface tool [Arm Mbed CLI](https://github.com/ARMmbed/mbed-cli#installing-mbed-cli).
 
 ## Application functionality
 
-The `main()` function starts a thread that blinks an LED at varying intervals to keep the CPU busy. It also creates an event queue and adds a function to periodically print the below statistics:
-   - The time spent while up, in idle mode, in sleep mode, in deep sleep mode since the system started
-   - The CPU usage and idle in percentage since the last call.
+The `main()` function starts a thread that blinks an LED at varying intervals to keep the CPU busy. It also creates an event queue and adds a function to periodically print these statistics:
 
-## Building and Running
+   - The time spent while up, in idle mode, in sleep mode and in deep sleep mode since the system started.
+   - The percentage of CPU usage and idleness since the last call.
+
+## Preqrequisites
+
+1. [Install Mbed CLI](https://os.mbed.com/docs/mbed-os/latest/tools/installation-and-setup.html).
+1. Determine which toolchain supports your target.
+
+   Depending on the target, you can build the example project with the GCC_ARM, ARM or IAR toolchain. To learn which toolchain supports your target, run this command:
+
+   ```bash
+   $ mbed compile -S
+   ```
+
+1. Clone this repository on your system.
+1. Change the current directory to where the project was cloned.
+
+## Building and running
 
 1. Connect a USB cable between the USB port on the target and the host computer.
-2. Run the following command to build the example project and program the microcontroller flash memory:
+1. Run this command to build the example project and program the microcontroller flash memory:
+
     ```bash
     $ mbed compile -m <TARGET> -t <TOOLCHAIN> --flash --sterm
     ```
-(Note: Mbed CLI command-line option "--sterm" is used to open a serial terminal after flashing.)
+
+(Note: You can use the Mbed CLI command-line option "--sterm" to open a serial terminal after flashing.)
 
 Your PC may take a few minutes to compile your code.
 
-The binary is located at `./BUILD/<TARGET>/<TOOLCHAIN>/mbed-os-example-cpu-stats.bin` and can alternatively be manually copied to the target which gets mounted on the host computer via USB.
+The binary is located at `./BUILD/<TARGET>/<TOOLCHAIN>/mbed-os-example-cpu-stats.bin`.
 
-Depending on the target, the example project can be built with GCC_ARM, ARM or IAR toolchain. Run the command below after installing ARM Mbed CLI to determine which toolchain supports your target.
-
-```bash
-$ mbed compile -S
-```
+Alternatively, you can manually copy the binary to the target, which gets mounted on the host computer through USB.
 
 ## Expected output
-The LED blinks and the serial terminal shows an output similar to the following:
+
+The LED blinks, and the serial terminal shows an output similar to:
+
 ```
 --- Terminal on /dev/ttyACM0 - 9600,8,N,1 ---
 Time(us): Up: 2000061   Idle: 1999817   Sleep: 0   DeepSleep: 1999817
@@ -63,7 +74,8 @@ Time(us): Up: 16000030   Idle: 14309537   Sleep: 0   DeepSleep: 14309537
 Idle: 44% Usage: 56%
 ```
 
-You can find below some information on how to interpret the above fields:
+The information below shows how to interpret the above fields:
+
 ```
 Uptime:          Time(us) since the system has started
 Idle time:       Time(us) spent in the idle thread since the system has started
@@ -72,17 +84,20 @@ DeepSleep time:  Time(us) spent in deep sleep since the system has started
 Idle:            Percentage of time spent in idle thread
 Usage:           Percentage fo time spent in computing
 ```
+
 ## Troubleshooting
+
 If you have problems, you can review the [documentation](https://os.mbed.com/docs/latest/tutorials/debugging.html) for suggestions on what could be wrong and how to fix it.
 
-## Related Links
+## Related links
 
 * [Mbed OS Stats API](https://os.mbed.com/docs/latest/apis/mbed-statistics.html).
-* [Mbed OS Configuration](https://os.mbed.com/docs/latest/reference/configuration.html).
-* [Mbed OS Serial Communication](https://os.mbed.com/docs/latest/tutorials/serial-communication.html).
+* [Mbed OS configuration](https://os.mbed.com/docs/latest/reference/configuration.html).
+* [Mbed OS serial communication](https://os.mbed.com/docs/latest/tutorials/serial-communication.html).
 * [Mbed boards](https://os.mbed.com/platforms/).
 
 ### License and contributions
-The software is provided under Apache-2.0 license. Contributions to this project are accepted under the same license. Please see contributing.md for more info.
+
+The software is provided under the Apache-2.0 license. Contributions to this project are accepted under the same license. Please see contributing.md for more info.
 
 This project contains code from other projects. The original license text is included in those source files. They must comply with our license guide.
