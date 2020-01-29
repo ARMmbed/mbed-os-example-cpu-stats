@@ -1,17 +1,14 @@
-Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
-Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
-Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
-Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
-Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
-Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
-Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
-Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
-Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
-Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
-Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
-Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
-Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
-Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
-Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
-Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
-Uptime: \d+ Idle Time: \d+ Sleep time: \d+ DeepSleep time: \d+
+Time\(us\): Up: \d+   Idle: \d+   Sleep: \d+   DeepSleep: \d+
+Idle: \d+% Usage: \d+%
+Time\(us\): Up: \d+   Idle: \d+   Sleep: \d+   DeepSleep: \d+
+Idle: \d+% Usage: \d+%
+Time\(us\): Up: \d+   Idle: \d+   Sleep: \d+   DeepSleep: \d+
+Idle: \d+% Usage: \d+%
+Time\(us\): Up: \d+   Idle: \d+   Sleep: \d+   DeepSleep: \d+
+Idle: \d+% Usage: \d+%
+Time\(us\): Up: \d+   Idle: \d+   Sleep: \d+   DeepSleep: \d+
+Idle: \d+% Usage: \d+%
+Time\(us\): Up: \d+   Idle: \d+   Sleep: \d+   DeepSleep: \d+
+Idle: \d+% Usage: \d+%
+Time\(us\): Up: \d+   Idle: \d+   Sleep: \d+   DeepSleep: \d+
+Idle: \d+% Usage: \d+%
