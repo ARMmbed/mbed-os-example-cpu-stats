@@ -42,6 +42,12 @@ The binary is located at `./BUILD/<TARGET>/<TOOLCHAIN>/mbed-os-example-cpu-stats
 
 Alternatively, you can manually copy the binary to the target, which gets mounted on the host computer through USB.
 
+Depending on the target, you can build the example project with the `GCC_ARM`, `ARM` or `IAR` toolchain. After installing Arm Mbed CLI, run the command below to determine which toolchain supports your target:
+
+```bash
+$ mbed compile -S
+```
+
 ## Expected output
 
 The LED blinks, and the serial terminal shows an output similar to:
