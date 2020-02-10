@@ -5,26 +5,25 @@ This guide reviews the steps required to get CPU statistics and usage on an Mbed
 
 You can build this project with all supported [Mbed OS build tools](https://os.mbed.com/docs/mbed-os/latest/tools/index.html). However, this example project specifically refers to the command-line interface tool [Arm Mbed CLI](https://github.com/ARMmbed/mbed-cli#installing-mbed-cli).
 
+1. [Install Mbed CLI](https://os.mbed.com/docs/mbed-os/latest/quick-start/offline-with-mbed-cli.html).
+
+1. Clone this repository on your system, and change the current directory to where the project was cloned:
+
+    ```bash
+    $ git clone git@github.com:armmbed/mbed-os-example-cpu-stats && cd mbed-os-example-cpu-stats
+    ```
+
+    Alternatively, you can download the example project with Arm Mbed CLI using the `import` subcommand:
+
+    ```bash
+    $ mbed import mbed-os-example-cpu-stats && cd mbed-os-example-cpu-stats
+
 ## Application functionality
 
 The `main()` function starts a thread that blinks an LED at varying intervals to keep the CPU busy. It also creates an event queue and adds a function to periodically print these statistics:
 
    - The time spent while up, in idle mode, in sleep mode and in deep sleep mode since the system started.
    - The percentage of CPU usage and idleness since the last call.
-
-## Preqrequisites
-
-1. [Install Mbed CLI](https://os.mbed.com/docs/mbed-os/latest/tools/installation-and-setup.html).
-1. Determine which toolchain supports your target.
-
-   Depending on the target, you can build the example project with the GCC_ARM, ARM or IAR toolchain. To learn which toolchain supports your target, run this command:
-
-   ```bash
-   $ mbed compile -S
-   ```
-
-1. Clone this repository on your system.
-1. Change the current directory to where the project was cloned.
 
 ## Building and running
 
@@ -42,6 +41,12 @@ Your PC may take a few minutes to compile your code.
 The binary is located at `./BUILD/<TARGET>/<TOOLCHAIN>/mbed-os-example-cpu-stats.bin`.
 
 Alternatively, you can manually copy the binary to the target, which gets mounted on the host computer through USB.
+
+Depending on the target, you can build the example project with the `GCC_ARM`, `ARM` or `IAR` toolchain. After installing Arm Mbed CLI, run the command below to determine which toolchain supports your target:
+
+```bash
+$ mbed compile -S
+```
 
 ## Expected output
 
