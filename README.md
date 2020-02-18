@@ -5,18 +5,9 @@ This guide reviews the steps required to get CPU statistics and usage on an Mbed
 
 You can build this project with all supported [Mbed OS build tools](https://os.mbed.com/docs/mbed-os/latest/tools/index.html). However, this example project specifically refers to the command-line interface tool [Arm Mbed CLI](https://github.com/ARMmbed/mbed-cli#installing-mbed-cli).
 
-1. [Install Mbed CLI](https://os.mbed.com/docs/mbed-os/latest/quick-start/offline-with-mbed-cli.html).
-
-1. Clone this repository on your system, and change the current directory to where the project was cloned:
-
-    ```bash
-    $ git clone git@github.com:armmbed/mbed-os-example-cpu-stats && cd mbed-os-example-cpu-stats
-    ```
-
-    Alternatively, you can download the example project with Arm Mbed CLI using the `import` subcommand:
-
-    ```bash
-    $ mbed import mbed-os-example-cpu-stats && cd mbed-os-example-cpu-stats
+1. Install Mbed CLI.
+1. Clone this repository on your system.
+1. Change the current directory to where the project was cloned.
 
 ## Application functionality
 
@@ -34,7 +25,7 @@ The `main()` function starts a thread that blinks an LED at varying intervals to
     $ mbed compile -m <TARGET> -t <TOOLCHAIN> --flash --sterm
     ```
 
-(Note: You can use the Mbed CLI command-line option "--sterm" to open a serial terminal after flashing.)
+Note: You can use the Mbed CLI command-line option "--sterm" to open a serial terminal after flashing.
 
 Your PC may take a few minutes to compile your code.
 
@@ -88,6 +79,20 @@ Sleep time:      Time(us) spent in sleep since the system has started
 DeepSleep time:  Time(us) spent in deep sleep since the system has started
 Idle:            Percentage of time spent in idle thread
 Usage:           Percentage fo time spent in computing
+```
+
+## Configuring the application
+
+You can enable CPU statistics by setting `platform.cpu-stats-enabled` to true in the application configuration file:
+
+```
+{
+    "target_overrides": {
+        "*": {            
+            "platform.cpu-stats-enabled": true            
+        }
+    }
+}
 ```
 
 ## Troubleshooting

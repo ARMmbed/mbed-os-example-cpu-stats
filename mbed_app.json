@@ -1,8 +1,7 @@
 {
-    "macros": ["MBED_CPU_STATS_ENABLED"],
     "target_overrides": {
         "*": {
-            "platform.stdio-convert-newlines": 1
+            "platform.cpu-stats-enabled": true
         }
     }
 }
